@@ -2,16 +2,19 @@
 /* Modifications
 2025-02-18 fho4abcd created by copy the functions from inicio.php
 2025-02-18 fho4abcd formatted, return also user if validation fails
+2025-11-24 fho4abcd return page set for architecture with OPAC
 */
 if (isset($_SESSION["HOME"])) {
 	$retorno = $_SESSION["HOME"];
 } elseif (isset($def['LOGIN_ERROR_PAGE'])) {
 	$retorno=$def['LOGIN_ERROR_PAGE'];
 } else {
-	if (file_exists("../../index.php")){
-		$retorno="../../index.php";
+	if (file_exists("../../login_abcd.php")){
+		$retorno="../../login_abcd.php";
+	} else if (file_exists("../../login.php")){
+		$retorno="../../login.php";
 	} else {
-		$retorno="../../index_abcd.php";
+		$retorno="../../index.php";
 	}
 }
 

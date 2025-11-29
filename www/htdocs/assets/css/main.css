@@ -10,6 +10,7 @@
 ** 2023-01-27 fho4abcd typo, remove invalid options
 ** 2023-03-16 fho4abcd moved some px to rem, small enhancements
 ** 2025-09-12 rogercgui Unifies CSS files in a single Main.CSS file
+** 2025-11-25 fho4abcd Reduce white space, especially in list/edit a record. Solution is not ideal.
 */
 
 /* ==========================================================================
@@ -1655,7 +1656,11 @@ table {
 th,
 td {
     text-align: left;
-    padding: 8px 5px;
+    /*padding: 8px 5px;*/
+    padding-top:0px;
+    padding-bottom:4px;
+    padding-left:5px;
+    padding-right:5px;
 }
 
 .striped {
@@ -2304,7 +2309,7 @@ table.toolbar-dataentry a {
 /* Toolbar Secundária (Ações do Fmt) */
 #myDiv {
     margin-right: 5px;
-    height: 48px;
+    /*height: 48px;*/
     vertical-align: middle;
     border-bottom-right-radius: 0.3rem;
     border-bottom-left-radius: 0.3rem;
@@ -2672,6 +2677,159 @@ div.ABCD_menu:hover {
     padding: 2px 10px;
 }
 
+/* --- 9.6. FST Editor -- */
+
+.helper-box {
+    background: #f8f9fa;
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+
+.helper-box h5 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #003366;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.form-row-custom {
+    display: flex;
+    gap: 10px;
+    align-items: flex-end;
+    flex-wrap: wrap;
+}
+
+.form-group-custom {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group-custom label {
+    font-size: 11px;
+    font-weight: bold;
+    margin-bottom: 4px;
+    color: #555;
+}
+
+.table-fst textarea {
+    width: 100%;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 13px;
+    border: 1px solid #ccc;
+    resize: vertical;
+    min-height: 30px;
+    padding: 2px;
+}
+
+.table-fst select {
+    width: 100%;
+    font-size: 12px;
+}
+
+.table-fst input[type="text"] {
+    width: 100%;
+    border: 1px solid #ccc;
+    padding: 4px;
+    text-align: center;
+}
+
+.actions-cell {
+    white-space: nowrap;
+    text-align: center;
+}
+
+.actions-cell .bt {
+    padding: 2px 6px;
+    margin: 0 1px;
+}
+
+/* Layout Flex para Editor + Help */
+.layout-wrapper {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+}
+
+.col-editor {
+    flex: 2;
+    /* Ocupa 2/3 */
+    min-width: 0;
+    /* Previne overflow */
+}
+
+.col-help {
+    flex: 1;
+    /* Ocupa 1/3 */
+    min-width: 300px;
+    position: sticky;
+    top: 10px;
+}
+
+.iframe-help {
+    width: 100%;
+    height: 600px;
+    border: 1px solid #ccc;
+    background: #fff;
+}
+
+.list-manager-container {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 20px 0;
+    border: 1px solid #ddd;
+    background: #f9f9f9;
+}
+
+.list-column {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Largura aumentada para caber a indentação */
+.list-column select {
+    width: 400px;
+    height: 500px;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 12px;
+    border: 1px solid #ccc;
+    padding: 5px;
+}
+
+.list-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 150px;
+    align-items: center;
+}
+
+.list-move-button {
+    padding: 8px 15px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.list-tools {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    margin-top: 150px;
+}
+
+.helper-box {
+    background: #f8f9fa;
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+
 
 /* ==========================================================================
    10.MEDIA QUERIES AND RESPONSIVENESS
@@ -2714,159 +2872,3 @@ div.ABCD_menu:hover {
         max-width: 100%;
     }
 }
-
-
-/* ==========================================================================
-   Style Sheets
-   ========================================================================== */
-
-       	.helper-box {
-       	    background: #f8f9fa;
-       	    border: 1px solid #ddd;
-       	    padding: 15px;
-       	    margin-bottom: 20px;
-       	    border-radius: 4px;
-       	}
-    
-       	.helper-box h5 {
-       	    margin-top: 0;
-       	    margin-bottom: 10px;
-       	    color: #003366;
-       	    font-size: 14px;
-       	    font-weight: bold;
-       	}
-    
-       	.form-row-custom {
-       	    display: flex;
-       	    gap: 10px;
-       	    align-items: flex-end;
-       	    flex-wrap: wrap;
-       	}
-    
-       	.form-group-custom {
-       	    display: flex;
-       	    flex-direction: column;
-       	}
-    
-       	.form-group-custom label {
-       	    font-size: 11px;
-       	    font-weight: bold;
-       	    margin-bottom: 4px;
-       	    color: #555;
-       	}
-    
-       	.table-fst textarea {
-       	    width: 100%;
-       	    font-family: "Courier New", Courier, monospace;
-       	    font-size: 13px;
-       	    border: 1px solid #ccc;
-       	    resize: vertical;
-       	    min-height: 30px;
-       	    padding: 2px;
-       	}
-    
-       	.table-fst select {
-       	    width: 100%;
-       	    font-size: 12px;
-       	}
-    
-       	.table-fst input[type="text"] {
-       	    width: 100%;
-       	    border: 1px solid #ccc;
-       	    padding: 4px;
-       	    text-align: center;
-       	}
-    
-       	.actions-cell {
-       	    white-space: nowrap;
-       	    text-align: center;
-       	}
-    
-       	.actions-cell .bt {
-       	    padding: 2px 6px;
-       	    margin: 0 1px;
-       	}
-    
-       	/* Layout Flex para Editor + Help */
-       	.layout-wrapper {
-       	    display: flex;
-       	    gap: 15px;
-       	    align-items: flex-start;
-       	}
-    
-       	.col-editor {
-       	    flex: 2;
-       	    /* Ocupa 2/3 */
-       	    min-width: 0;
-       	    /* Previne overflow */
-       	}
-    
-       	.col-help {
-       	    flex: 1;
-       	    /* Ocupa 1/3 */
-       	    min-width: 300px;
-       	    position: sticky;
-       	    top: 10px;
-       	}
-    
-       	.iframe-help {
-       	    width: 100%;
-       	    height: 600px;
-       	    border: 1px solid #ccc;
-       	    background: #fff;
-       	}
-        .list-manager-container {
-            display: flex;
-            gap: 20px;
-            align-items: flex-start;
-            justify-content: center;
-            padding: 20px 0;
-            border: 1px solid #ddd;
-            background: #f9f9f9;
-        }
-    
-        .list-column {
-            display: flex;
-            flex-direction: column;
-        }
-    
-        /* Largura aumentada para caber a indentação */
-        .list-column select {
-            width: 400px;
-            height: 500px;
-            font-family: "Courier New", Courier, monospace;
-            font-size: 12px;
-            border: 1px solid #ccc;
-            padding: 5px;
-        }
-    
-        .list-controls {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            margin-top: 150px;
-            align-items: center;
-        }
-    
-        .list-move-button {
-            padding: 8px 15px;
-            text-align: center;
-            cursor: pointer;
-        }
-    
-        .list-tools {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            align-items: center;
-            margin-top: 150px;
-        }
-    
-        .helper-box {
-            background: #f8f9fa;
-            border: 1px solid #ddd;
-            padding: 15px;
-            margin-bottom: 20px;
-            border-radius: 4px;
-        }
-    

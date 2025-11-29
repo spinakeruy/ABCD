@@ -16,6 +16,7 @@
 20221128 fho4abcd if $module_odds is set: show language dropdown & do not show logout
 20230116 fho4abcd moved initial db selection code in one function+visual warning if none is selected. Some cleanup of unused code
 20230120 fho4abcd Added hovered titles
+20251124 fho4abcd Relative path to logout.php changed to fixed path.
 */
 
 global $ABCD_scripts_path;
@@ -392,7 +393,7 @@ function CambiarLenguaje(){
 
             <li>
             <?php if (!isset($module_odds)) { ?>
-                <a class="bt-exit" href="../common/logout.php" title='<?php echo $msgstr["logout"];?>' >
+                <a class="bt-exit" href="/central/common/logout.php"" title='<?php echo $msgstr["logout"];?>' >
                 <img src="/assets/svg/ic_fluent_sign_out_24_regular.svg"></a>
             <?php }?>
             </li>

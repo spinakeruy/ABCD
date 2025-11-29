@@ -3,8 +3,8 @@
 // (head-my.php NÃO PODE ser o primeiro a ser chamado)
 // Usamos realpath para garantir que os caminhos funcionem
 
-include_once(realpath(__DIR__ . '../../../central/config_opac.php'));
-include_once(realpath(__DIR__ . '../../functions.php')); // Inicia a sessão
+include_once(realpath(__DIR__ . '/../../central/config_opac.php'));
+include_once(realpath(__DIR__ . '/../functions.php'));
 
 // --- 2. VERIFICAÇÃO DE SEGURANÇA (ANTES DE QUALQUER HTML) ---
 if (!isset($_SESSION['user_id']) || empty($_SESSION['user_id'])) {

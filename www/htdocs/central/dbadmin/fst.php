@@ -100,7 +100,7 @@ for ($i = 0; $i <= 8; $i++) {
 								<input type="text" id="new_id" class="text-input" placeholder="100">
 							</div>
 
-							<div class="form-group-custom" style="flex-grow: 1;">
+							<div class="form-group-custom" style="flex-grow: 0.5;">
 								<label><?php echo $msgstr["tech"]; ?></label>
 								<select id="new_tech" class="text-input">
 									<?php echo $tech_options_html; ?>

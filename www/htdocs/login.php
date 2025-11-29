@@ -14,6 +14,7 @@
 20230602 fho4abcd Add captcha
 20250305 fho4abcd Use current username: makes filling login form more easy
 20250801 fho4abcd Do not rely on existence HTTP_ACCEPT_LANGUAGE: some browsers do not send it
+20251124 fho4abcd Add button To OPAC
 */
 session_start();
 $_SESSION=array();
@@ -143,6 +144,10 @@ function Enviar(){
 		}
 		document.administra.submit()
 	}
+}
+function ToOPAC(){
+	const baseUrl = window.location.origin;
+	window.location.href=baseUrl;
 }
 
 </script>
@@ -286,13 +291,16 @@ include ("$app_path/common/css_settings.php");
 		<td><input type="text" name="captcha" id="captcha" class="textEntry superTextEntry" onfocus="this.className = 'textEntry superTextEntry textEntryFocus';" onblur="this.className = 'textEntry superTextEntry';" />
 	<?php } ?>
 	<tr><td>
-		   <?php if (isset($change_password) and $change_password=="Y") { ?>
-		   <a href="javascript:CambiarClave()" class="bt bt-gray">
+		<?php if (isset($change_password) and $change_password=="Y") { ?>
+			<a href="javascript:CambiarClave()" class="bt bt-gray">
 			<i class="fas fa-key"></i> &nbsp;<?php echo $msgstr["chgpass"]?></a>
-		   <?php } ?>
+		<?php } ?>
 		</td>
-		<td style="text-align:right"><a href="javascript:Enviar()" class="bt bt-blue">
-		 <i class="fas fa-sign-in-alt"></i> &nbsp; <?php echo $msgstr["login"]?> &nbsp; </a>
+		<td style="text-align:right">
+		<a href="javascript:ToOPAC()" class="bt bt-default">
+		<i class="fas fa-globe"></i> &nbsp; <?php echo "OPAC";?></a>
+		<a href="javascript:Enviar()" class="bt bt-blue">
+		<i class="fas fa-sign-in-alt"></i> &nbsp; <?php echo $msgstr["login"]?> &nbsp; </a>
 		</td>
 </table>
 </div>

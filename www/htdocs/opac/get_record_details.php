@@ -144,7 +144,7 @@ try {
             if (substr($format_name, -4) == ".pft") $format_name = substr($format_name, 0, -4);
 
             $label = isset($parts[1]) && trim($parts[1]) != "" ? trim($parts[1]) : $format_name;
-            $is_default = isset($parts[2]) && strtoupper(trim($parts[2])) === 'Y';
+            $is_default = isset($parts[3]) && strtoupper(trim($parts[3])) === 'Y';
             $response['availableFormats'][] = ['name' => $format_name, 'label' => $label, 'is_default' => $is_default];
 
             if ($is_default) {

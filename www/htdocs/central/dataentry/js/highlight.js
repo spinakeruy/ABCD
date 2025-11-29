@@ -2,6 +2,7 @@
 20220304 fho4abcd Test on undefined value in highlightSearchTerms
 20220304 fho4abcd Correct wrong replacements,more replacements
 20230202 fho4abcd Return without processing if search string= ""
+20251125 fho4abcd Allow a comma in the searchTerm+ correct invalid search terms (Not ideal, only a plaster)
 */
 function doHighlight(bodyText, searchTerm, highlightStartTag, highlightEndTag) 
 {
@@ -24,7 +25,7 @@ function doHighlight(bodyText, searchTerm, highlightStartTag, highlightEndTag)
   lcSearchTerm  = lcSearchTerm.replace(/[îïíì]/ig, "i");
   lcSearchTerm  = lcSearchTerm.replace(/[ôöóò]/ig, "o");
   lcSearchTerm  = lcSearchTerm.replace(/[ùûůűüú]/ig, "u");
-  lcSearchTerm  = lcSearchTerm.replace(/[,]/ig, "");
+  //lcSearchTerm  = lcSearchTerm.replace(/[,]/ig, "");
 
   var lcBodyText = bodyText.toLowerCase();
   lcBodyText = lcBodyText.replace(/[èéęêë]/ig, 'e');
@@ -69,7 +70,7 @@ function doHighlight(bodyText, searchTerm, highlightStartTag, highlightEndTag)
  * Only the "searchText" parameter is required; all other parameters
  * are optional and can be omitted.
  */
-function highlightSearchTerms(searchText, treatAsPhrase, warnOnFailure, highlightStartTag, highlightEndTag)
+function highlightSearchTerms(searchText, treatAsPhrase=true, warnOnFailure, highlightStartTag, highlightEndTag)
 {
   // if the treatAsPhrase parameter is true, then we should search for 
   // the entire phrase that was entered; otherwise, we will split the
@@ -88,17 +89,27 @@ function highlightSearchTerms(searchText, treatAsPhrase, warnOnFailure, highligh
     }
     return false;
   }
-  
+
   var bodyText = document.body.innerHTML;
   for (var i = 0; i < searchArray.length; i++) {
     term=searchArray[i];
+    lastchar=term.charAt(term.length - 1);
+    firstchar=term.charAt(0);
+    char2=term.charAt(1);
+    if (firstchar!="(" && lastchar==")"){
+	    term=term.substring(0,term.length-1);
+    }
+    if (char2=="_") {
+	    term=term.substring(2,term.length);
+    }
     ix=term.lastIndexOf('$')
     if (ix>0){
         term=term.substring(0,ix)
         bodyText = doHighlight(bodyText, term, highlightStartTag, highlightEndTag);
     }else{
-        if (term.length>3)
+        if (term.length>3){
             bodyText = doHighlight(bodyText, term, highlightStartTag, highlightEndTag);
+	}
     }
   }
 
